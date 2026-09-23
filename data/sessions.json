@@ -1,10 +1,19 @@
 [
   {
-    "date": "2026-10-07",
+    "date": "2026-09-30",
     "presenterName": "Jane Doe",
     "paperTitle": "Example: Neutrino Oscillations in Matter",
     "paperAuthors": "L. Wolfenstein",
     "paperLink": "https://arxiv.org/abs/xxxx.xxxxx",
     "pptLink": ""
+  },
+  {
+    "date": "2026-10-07",
+    "presenterName": "Faraz Mehdi",
+    "paperTitle": "Neutrino (Antineutrino)-Nucleus Interactions in the Shallow- and Deep-Inelastic Scattering Regions",
+    "paperAuthors": "M. Sajjad Athat, Jorge G. Morfin",
+    "paperLink": "https://arxiv.org/abs/2006.08603",
+    "pptLink": ""
+
   }
 ]

@@ -6,251 +6,65 @@
 <title>THEP Journal Club — Wayne State</title>
 <style>
   :root {
-    --bg: #faf9f7;
-    --bg-elev: #ffffff;
-    --text: #1c1b1a;
-    --text-dim: #6b6660;
-    --border: #e4e0da;
-    --accent: #8a3324;
-    --accent-soft: #f5e2dc;
-    --accent-text: #6e2a1d;
-    --open-bg: #eef4ea;
-    --open-border: #b9d3a8;
-    --open-text: #3c6b2a;
-    --link: #8a3324;
-    --shadow: 0 1px 2px rgba(20,15,10,0.05), 0 4px 14px rgba(20,15,10,0.05);
+    --bg: #faf9f7; --bg-elev: #ffffff; --text: #1c1b1a; --text-dim: #6b6660;
+    --border: #e4e0da; --accent: #8a3324; --accent-soft: #f5e2dc; --accent-text: #6e2a1d;
+    --open-bg: #eef4ea; --open-border: #b9d3a8; --open-text: #3c6b2a;
+    --link: #8a3324; --shadow: 0 1px 2px rgba(20,15,10,0.05), 0 4px 14px rgba(20,15,10,0.05);
     --radius: 14px;
-    box-sizing: border-box;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #17140f;
-      --bg-elev: #221e18;
-      --text: #f0ece5;
-      --text-dim: #a89f92;
-      --border: #37312a;
-      --accent: #d98a6e;
-      --accent-soft: #3a2620;
-      --accent-text: #f0b39c;
-      --open-bg: #1f2b1a;
-      --open-border: #3e5a30;
-      --open-text: #a8d18f;
-      --link: #d98a6e;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 14px rgba(0,0,0,0.3);
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #17140f;
-    --bg-elev: #221e18;
-    --text: #f0ece5;
-    --text-dim: #a89f92;
-    --border: #37312a;
-    --accent: #d98a6e;
-    --accent-soft: #3a2620;
-    --accent-text: #f0b39c;
-    --open-bg: #1f2b1a;
-    --open-border: #3e5a30;
-    --open-text: #a8d18f;
-    --link: #d98a6e;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 14px rgba(0,0,0,0.3);
+    :root { --bg:#17140f; --bg-elev:#221e18; --text:#f0ece5; --text-dim:#a89f92; --border:#37312a;
+      --accent:#d98a6e; --accent-soft:#3a2620; --accent-text:#f0b39c; --open-bg:#1f2b1a;
+      --open-border:#3e5a30; --open-text:#a8d18f; --link:#d98a6e;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 4px 14px rgba(0,0,0,0.3); }
   }
   * { box-sizing: border-box; }
-  html, body {
-    height: 100%;
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Iowan Old Style', 'Palatino Linotype', Georgia, 'Times New Roman', serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  body {
-    padding: 28px 16px 60px;
-    max-width: 760px;
-    margin: 0 auto;
-  }
-  header.top {
-    margin-bottom: 22px;
-  }
-  .eyebrow {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 11.5px;
-    color: var(--accent-text);
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
-  h1 {
-    font-size: 30px;
-    margin: 0 0 10px;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-  }
-  .meta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 18px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 13.5px;
-    color: var(--text-dim);
-    margin-bottom: 4px;
-  }
-  .meta-row span { white-space: nowrap; }
-  .meta-row b { color: var(--text); font-weight: 600; }
-  nav.tabs {
-    display: flex;
-    gap: 4px;
-    margin: 22px 0 20px;
-    border-bottom: 1px solid var(--border);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    overflow-x: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  nav.tabs::-webkit-scrollbar { display: none; }
-  nav.tabs button {
-    background: none;
-    border: none;
-    font: inherit;
-    font-size: 14px;
-    color: var(--text-dim);
-    padding: 9px 14px;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    white-space: nowrap;
-    font-weight: 500;
-  }
-  nav.tabs button.active {
-    color: var(--accent-text);
-    border-bottom-color: var(--accent);
-    font-weight: 600;
-  }
-  section.panel { display: none; }
-  section.panel.active { display: block; animation: fade .18s ease; }
-  @keyframes fade { from { opacity: 0; transform: translateY(3px);} to { opacity: 1; transform: none; } }
-
-  .card {
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px 18px;
-    margin-bottom: 12px;
-    box-shadow: var(--shadow);
-  }
-  .session-row { display: flex; gap: 14px; align-items: flex-start; }
-  .date-chip {
-    flex-shrink: 0;
-    width: 56px;
-    text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    padding-top: 2px;
-  }
-  .date-chip .dow { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); }
-  .date-chip .dom { font-size: 22px; font-weight: 700; line-height: 1.1; }
-  .date-chip .mon { font-size: 10.5px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; }
-  .session-body { flex: 1; min-width: 0; }
-  .session-title { font-size: 16.5px; font-weight: 600; margin: 0 0 2px; }
-  .presenter { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; color: var(--text-dim); margin-bottom: 8px; }
-  .authors { font-style: italic; color: var(--text-dim); font-size: 13.5px; margin: 0 0 8px; }
-  .links-row { display: flex; flex-wrap: wrap; gap: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12.5px; }
-  .pill-link {
-    display: inline-flex; align-items: center; gap: 5px;
-    background: var(--accent-soft); color: var(--accent-text);
-    border-radius: 999px; padding: 5px 11px; text-decoration: none; font-weight: 600;
-    border: 1px solid transparent;
-  }
-  .pill-link:hover { border-color: var(--accent); }
-  .open-slot {
-    display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  }
-  .open-badge {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 12px; font-weight: 700; color: var(--open-text);
-    background: var(--open-bg); border: 1px solid var(--open-border);
-    padding: 4px 10px; border-radius: 999px;
-  }
-  button.primary {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--accent); color: #fff; border: none;
-    padding: 9px 16px; border-radius: 999px; font-size: 13.5px; font-weight: 600;
-    cursor: pointer;
-  }
-  button.primary:disabled { opacity: 0.5; cursor: default; }
-  button.ghost {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: none; border: 1px solid var(--border); color: var(--text);
-    padding: 8px 14px; border-radius: 999px; font-size: 13px; cursor: pointer;
-  }
-  .empty {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    color: var(--text-dim); font-size: 14px; padding: 20px 4px; text-align: center;
-  }
-
-  /* Modal */
-  .modal-backdrop {
-    position: fixed; inset: 0; background: rgba(20,15,10,0.45);
-    display: none; align-items: flex-end; justify-content: center; z-index: 40;
-    padding: 0;
-  }
-  .modal-backdrop.open { display: flex; }
-  .modal {
-    background: var(--bg-elev); border-radius: 18px 18px 0 0;
-    width: 100%; max-width: 560px; max-height: 88vh; overflow-y: auto;
-    padding: 20px 20px calc(24px + env(safe-area-inset-bottom, 0px));
-    border: 1px solid var(--border); border-bottom: none;
-  }
-  @media (min-width: 640px) {
-    .modal-backdrop { align-items: center; }
-    .modal { border-radius: 18px; border-bottom: 1px solid var(--border); }
-  }
-  .modal h2 { font-size: 19px; margin: 0 0 14px; }
-  .field { margin-bottom: 13px; }
-  .field label {
-    display: block; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 12.5px; font-weight: 600; color: var(--text-dim); margin-bottom: 5px;
-  }
-  .field input[type=text], .field input[type=email], .field input[type=url], .field select, .field textarea {
-    width: 100%; font: inherit; font-size: 14.5px; padding: 9px 11px;
-    border: 1px solid var(--border); border-radius: 10px; background: var(--bg);
-    color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  }
-  .field textarea { resize: vertical; min-height: 54px; }
-  .field input[type=file] {
-    width: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px;
-  }
-  .file-status { font-size: 12px; color: var(--text-dim); margin-top: 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-  .modal-actions { display: flex; gap: 10px; margin-top: 18px; }
-  .modal-actions button { flex: 1; }
-  .close-x {
-    position: absolute; top: 14px; right: 16px; background: none; border: none;
-    font-size: 20px; color: var(--text-dim); cursor: pointer; line-height: 1;
-  }
-  .modal { position: relative; }
-  .form-msg { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; margin-top: 10px; }
-  .form-msg.err { color: #b3362a; }
-  .form-msg.ok { color: var(--open-text); }
-
-  .suggestion-card .session-title { font-size: 15.5px; }
-  .suggestion-meta { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; color: var(--text-dim); }
-
-  .section-head {
-    display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px;
-  }
-  .section-head h2 { font-size: 18px; margin: 0; }
-  .section-head p { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12.5px; color: var(--text-dim); margin: 3px 0 0; }
-
-  .banner {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 12.5px; color: var(--text-dim); background: var(--accent-soft);
-    color: var(--accent-text); padding: 8px 12px; border-radius: 10px; margin-bottom: 14px;
-  }
+  html, body { margin: 0; background: var(--bg); color: var(--text);
+    font-family: 'Iowan Old Style','Palatino Linotype',Georgia,'Times New Roman',serif; }
+  body { padding: 28px 16px 60px; max-width: 760px; margin: 0 auto; }
+  .eyebrow { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; text-transform:uppercase;
+    letter-spacing:.14em; font-size:11.5px; color:var(--accent-text); font-weight:600; margin-bottom:6px; }
+  h1 { font-size: 30px; margin: 0 0 10px; line-height:1.15; letter-spacing:-.01em; }
+  .meta-row { display:flex; flex-wrap:wrap; gap:8px 18px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:13.5px; color:var(--text-dim); margin-bottom:4px; }
+  .meta-row b { color: var(--text); font-weight:600; }
+  nav.tabs { display:flex; gap:4px; margin:22px 0 20px; border-bottom:1px solid var(--border);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; overflow-x:auto; }
+  nav.tabs button { background:none; border:none; font:inherit; font-size:14px; color:var(--text-dim);
+    padding:9px 14px; cursor:pointer; border-bottom:2px solid transparent; white-space:nowrap; font-weight:500; }
+  nav.tabs button.active { color:var(--accent-text); border-bottom-color:var(--accent); font-weight:600; }
+  section.panel { display:none; }
+  section.panel.active { display:block; }
+  .card { background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--radius);
+    padding:16px 18px; margin-bottom:12px; box-shadow:var(--shadow); }
+  .session-row { display:flex; gap:14px; align-items:flex-start; }
+  .date-chip { flex-shrink:0; width:56px; text-align:center; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; padding-top:2px; }
+  .date-chip .dow { font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-dim); }
+  .date-chip .dom { font-size:22px; font-weight:700; line-height:1.1; }
+  .date-chip .mon { font-size:10.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.04em; }
+  .session-body { flex:1; min-width:0; }
+  .session-title { font-size:16.5px; font-weight:600; margin:0 0 2px; }
+  .presenter { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:13px; color:var(--text-dim); margin-bottom:8px; }
+  .authors { font-style:italic; color:var(--text-dim); font-size:13.5px; margin:0 0 8px; }
+  .links-row { display:flex; flex-wrap:wrap; gap:8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:12.5px; }
+  .pill-link { display:inline-flex; align-items:center; gap:5px; background:var(--accent-soft); color:var(--accent-text);
+    border-radius:999px; padding:5px 11px; text-decoration:none; font-weight:600; border:1px solid transparent; }
+  .open-badge { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:12px; font-weight:700;
+    color:var(--open-text); background:var(--open-bg); border:1px solid var(--open-border); padding:4px 10px; border-radius:999px; }
+  .empty { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; color:var(--text-dim); font-size:14px; padding:20px 4px; text-align:center; }
+  .suggestion-meta { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:12px; color:var(--text-dim); }
+  .section-head { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px; }
+  .section-head h2 { font-size:18px; margin:0; }
+  .section-head p { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:12.5px; color:var(--text-dim); margin:3px 0 0; }
+  .howto { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:13px; color:var(--accent-text);
+    background:var(--accent-soft); border-radius:10px; padding:12px 14px; margin-bottom:18px; line-height:1.5; }
+  .howto code { background:rgba(0,0,0,0.06); padding:1px 5px; border-radius:5px; font-size:12px; }
+  .howto a { color:var(--accent-text); font-weight:600; }
 </style>
 </head>
 <body>
 
-<header class="top">
+<header>
   <div class="eyebrow">Wayne State University · Physics &amp; Astronomy</div>
   <h1>THEP Journal Club</h1>
   <div class="meta-row">
@@ -260,172 +74,37 @@
   </div>
 </header>
 
+<div class="howto">
+  📝 <b>To add or edit a talk:</b> open <a href="https://github.com/farazmohdmehdi/thep-journal-club/edit/main/data/sessions.json" target="_blank" rel="noopener">data/sessions.json on GitHub</a>, add an entry, then commit. The site updates automatically within a minute or two.
+  To add a paper suggestion, edit <a href="https://github.com/farazmohdmehdi/thep-journal-club/edit/main/data/suggestions.json" target="_blank" rel="noopener">data/suggestions.json</a> the same way.
+</div>
+
 <nav class="tabs">
   <button class="tab-btn active" data-tab="schedule">Schedule</button>
   <button class="tab-btn" data-tab="archive">Archive</button>
-  <button class="tab-btn" data-tab="suggestions">Suggest a Paper</button>
+  <button class="tab-btn" data-tab="suggestions">Suggested Papers</button>
 </nav>
 
 <section class="panel active" id="panel-schedule">
-  <div class="section-head">
-    <div>
-      <h2>Upcoming sessions</h2>
-      <p>Tap an open Wednesday to sign up and present.</p>
-    </div>
-  </div>
+  <div class="section-head"><div><h2>Upcoming sessions</h2><p>Talks scheduled in sessions.json for today or later.</p></div></div>
   <div id="schedule-list"><div class="empty">Loading…</div></div>
 </section>
 
 <section class="panel" id="panel-archive">
-  <div class="section-head">
-    <div>
-      <h2>Past sessions</h2>
-      <p>Slides and papers from previous meetings.</p>
-    </div>
-  </div>
+  <div class="section-head"><div><h2>Past sessions</h2><p>Talks from before today.</p></div></div>
   <div id="archive-list"><div class="empty">Loading…</div></div>
 </section>
 
 <section class="panel" id="panel-suggestions">
-  <div class="section-head">
-    <div>
-      <h2>Suggest a paper</h2>
-      <p>Anyone can propose a paper for the group to cover.</p>
-    </div>
-    <button class="primary" id="open-suggest">+ Suggest</button>
-  </div>
+  <div class="section-head"><div><h2>Suggested papers</h2><p>From suggestions.json.</p></div></div>
   <div id="suggestions-list"><div class="empty">Loading…</div></div>
 </section>
-
-<!-- Sign-up modal -->
-<div class="modal-backdrop" id="signup-backdrop">
-  <div class="modal">
-    <button class="close-x" data-close="signup">✕</button>
-    <h2>Sign up to present</h2>
-    <div class="banner" id="signup-date-banner"></div>
-    <form id="signup-form">
-      <div class="field">
-        <label>Your name</label>
-        <input type="text" id="su-name" required placeholder="e.g. Jane Doe">
-      </div>
-      <div class="field">
-        <label>Paper title</label>
-        <input type="text" id="su-title" required placeholder="e.g. Neutrino Oscillations in Matter">
-      </div>
-      <div class="field">
-        <label>Authors (optional)</label>
-        <input type="text" id="su-authors" placeholder="e.g. Wolfenstein; Mikheyev &amp; Smirnov">
-      </div>
-      <div class="field">
-        <label>Paper link (arXiv / journal, optional)</label>
-        <input type="url" id="su-link" placeholder="https://arxiv.org/abs/...">
-      </div>
-      <div class="field">
-        <label>Upload paper (PDF, optional)</label>
-        <input type="file" id="su-paper-file" accept="application/pdf">
-        <div class="file-status" id="su-paper-status"></div>
-      </div>
-      <div class="field">
-        <label>Upload slides (PPT/PDF, optional — can add later)</label>
-        <input type="file" id="su-ppt-file" accept=".ppt,.pptx,application/pdf">
-        <div class="file-status" id="su-ppt-status"></div>
-      </div>
-      <div class="modal-actions">
-        <button type="button" class="ghost" data-close="signup">Cancel</button>
-        <button type="submit" class="primary" id="signup-submit">Sign up</button>
-      </div>
-      <div class="form-msg" id="signup-msg"></div>
-    </form>
-  </div>
-</div>
-
-<!-- Edit/upload modal for an already-scheduled session (presenter adding files later) -->
-<div class="modal-backdrop" id="edit-backdrop">
-  <div class="modal">
-    <button class="close-x" data-close="edit">✕</button>
-    <h2>Update session</h2>
-    <div class="banner" id="edit-date-banner"></div>
-    <form id="edit-form">
-      <div class="field">
-        <label>Upload / replace paper (PDF)</label>
-        <input type="file" id="ed-paper-file" accept="application/pdf">
-        <div class="file-status" id="ed-paper-status"></div>
-      </div>
-      <div class="field">
-        <label>Upload / replace slides (PPT/PDF)</label>
-        <input type="file" id="ed-ppt-file" accept=".ppt,.pptx,application/pdf">
-        <div class="file-status" id="ed-ppt-status"></div>
-      </div>
-      <div class="modal-actions">
-        <button type="button" class="ghost" data-close="edit">Close</button>
-        <button type="submit" class="primary" id="edit-submit">Save</button>
-      </div>
-      <div class="form-msg" id="edit-msg"></div>
-    </form>
-  </div>
-</div>
-
-<!-- Suggestion modal -->
-<div class="modal-backdrop" id="suggest-backdrop">
-  <div class="modal">
-    <button class="close-x" data-close="suggest">✕</button>
-    <h2>Suggest a paper</h2>
-    <form id="suggest-form">
-      <div class="field">
-        <label>Paper title</label>
-        <input type="text" id="sg-title" required>
-      </div>
-      <div class="field">
-        <label>Authors (optional)</label>
-        <input type="text" id="sg-authors">
-      </div>
-      <div class="field">
-        <label>Link (optional)</label>
-        <input type="url" id="sg-link" placeholder="https://arxiv.org/abs/...">
-      </div>
-      <div class="field">
-        <label>Why this paper? (optional)</label>
-        <textarea id="sg-note"></textarea>
-      </div>
-      <div class="field">
-        <label>Your name</label>
-        <input type="text" id="sg-name" required>
-      </div>
-      <div class="modal-actions">
-        <button type="button" class="ghost" data-close="suggest">Cancel</button>
-        <button type="submit" class="primary" id="suggest-submit">Submit</button>
-      </div>
-      <div class="form-msg" id="suggest-msg"></div>
-    </form>
-  </div>
-</div>
 
 <script>
 (function(){
   "use strict";
-
-  // ---------- Date helpers ----------
-  function pad(n){ return n < 10 ? "0"+n : ""+n; }
-  function toKey(d){ return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); }
-  function fromKey(k){ var p = k.split("-"); return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2])); }
   var DOW = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
   var MON = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
-
-  function nextWednesdays(count){
-    var out = [];
-    var d = new Date();
-    d.setHours(0,0,0,0);
-    // move to next Wednesday (or today if today is Wednesday)
-    var diff = (3 - d.getDay() + 7) % 7;
-    d.setDate(d.getDate() + diff);
-    for (var i=0;i<count;i++){
-      out.push(new Date(d));
-      d.setDate(d.getDate()+7);
-    }
-    return out;
-  }
-
-  function todayKey(){ var t = new Date(); t.setHours(0,0,0,0); return toKey(t); }
 
   function escapeHtml(s){
     if (!s) return "";
@@ -433,146 +112,69 @@
       return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
     });
   }
+  function fromKey(k){ var p=k.split("-"); return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2])); }
+  function todayKey(){ var t=new Date(); t.setHours(0,0,0,0);
+    return t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0"); }
 
-  // ---------- Capabilities ----------
-  var db = null, assets = null, userCap = null, canWrite = true;
-
-  async function initCaps(){
-    try { db = await claude.use("db"); } catch(e){ db = null; }
-    try { assets = await claude.use("assets"); } catch(e){ assets = null; }
-    try { userCap = await claude.use("user"); } catch(e){ userCap = null; }
-    if (userCap) {
-      try {
-        var w = userCap.can ? userCap.can("data.write") : null;
-        if (w === false) canWrite = false;
-      } catch(e){}
-    }
-    if (!db) {
-      document.getElementById("schedule-list").innerHTML =
-        '<div class="empty">This page can\'t connect to shared data right now. Try reopening it from claude.ai.</div>';
-      document.getElementById("archive-list").innerHTML = "";
-      document.getElementById("suggestions-list").innerHTML = "";
-      return;
-    }
-    subscribeSessions();
-    subscribeSuggestions();
-  }
-
-  // ---------- State ----------
-  var sessionsByDate = {}; // key -> doc data
-  var suggestions = []; // {id, ...data}
-  var upcomingDates = nextWednesdays(14);
-
-  function subscribeSessions(){
-    try {
-      db.collection("sessions").onSnapshot(function(snap){
-        var map = {};
-        snap.docs.forEach(function(d){ map[d.id] = d.data(); });
-        sessionsByDate = map;
-        renderSchedule();
-        renderArchive();
-      }, function(err){
-        console.error("sessions snapshot error", err);
-      });
-    } catch(e){ console.error(e); }
-  }
-
-  function subscribeSuggestions(){
-    try {
-      db.collection("suggestions").orderBy("createdAt","desc").limit(200).onSnapshot(function(snap){
-        suggestions = snap.docs.map(function(d){ var v = d.data(); v._id = d.id; return v; });
-        renderSuggestions();
-      }, function(err){
-        console.error("suggestions snapshot error", err);
-      });
-    } catch(e){ console.error(e); }
-  }
-
-  // ---------- Rendering: schedule ----------
-  function dateChip(d){
-    return '<div class="date-chip"><div class="dow">'+DOW[d.getDay()]+'</div>' +
-      '<div class="dom">'+d.getDate()+'</div>' +
-      '<div class="mon">'+MON[d.getMonth()]+'</div></div>';
+  function dateChip(key){
+    var d = fromKey(key);
+    return '<div class="date-chip"><div class="dow">'+DOW[d.getDay()]+'</div>'+
+      '<div class="dom">'+d.getDate()+'</div><div class="mon">'+MON[d.getMonth()]+'</div></div>';
   }
 
   function linksRow(sess){
     var links = [];
-    if (sess.paperAssetUrl) links.push('<a class="pill-link" href="'+escapeHtml(sess.paperAssetUrl)+'" target="_blank" rel="noopener">📄 Paper</a>');
-    else if (sess.paperLink) links.push('<a class="pill-link" href="'+escapeHtml(sess.paperLink)+'" target="_blank" rel="noopener">📄 Paper link</a>');
-    if (sess.pptAssetUrl) links.push('<a class="pill-link" href="'+escapeHtml(sess.pptAssetUrl)+'" target="_blank" rel="noopener">📊 Slides</a>');
+    if (sess.paperLink) links.push('<a class="pill-link" href="'+escapeHtml(sess.paperLink)+'" target="_blank" rel="noopener">📄 Paper</a>');
+    if (sess.pptLink) links.push('<a class="pill-link" href="'+escapeHtml(sess.pptLink)+'" target="_blank" rel="noopener">📊 Slides</a>');
     return links.length ? '<div class="links-row">'+links.join("")+'</div>' : "";
   }
 
-  function renderSchedule(){
-    var el = document.getElementById("schedule-list");
-    var tKey = todayKey();
-    var upcoming = upcomingDates.filter(function(d){ return toKey(d) >= tKey; });
-    if (!upcoming.length){ el.innerHTML = '<div class="empty">No upcoming Wednesdays scheduled yet.</div>'; return; }
-    var html = "";
-    upcoming.forEach(function(d){
-      var key = toKey(d);
-      var sess = sessionsByDate[key];
-      if (sess && sess.presenterName) {
-        html += '<div class="card"><div class="session-row">' + dateChip(d) +
-          '<div class="session-body">' +
-          '<p class="session-title">'+escapeHtml(sess.paperTitle || "Untitled talk")+'</p>' +
-          (sess.paperAuthors ? '<p class="authors">'+escapeHtml(sess.paperAuthors)+'</p>' : '') +
-          '<p class="presenter">Presented by '+escapeHtml(sess.presenterName)+'</p>' +
-          linksRow(sess) +
-          '<div style="margin-top:8px"><button class="ghost" data-edit="'+key+'">Add / update slides &amp; paper</button></div>' +
-          '</div></div></div>';
-      } else {
-        html += '<div class="card"><div class="session-row open-slot">' + dateChip(d) +
-          '<div class="session-body open-slot" style="display:flex;align-items:center;justify-content:space-between;gap:10px;">' +
-          '<span class="open-badge">OPEN — needs a presenter</span>' +
-          '<button class="primary" data-signup="'+key+'">Sign up</button>' +
-          '</div></div></div>';
-      }
-    });
-    el.innerHTML = html;
+  function sessionCard(sess){
+    return '<div class="card"><div class="session-row">'+dateChip(sess.date)+
+      '<div class="session-body">'+
+      '<p class="session-title">'+escapeHtml(sess.paperTitle||"Untitled talk")+'</p>'+
+      (sess.paperAuthors ? '<p class="authors">'+escapeHtml(sess.paperAuthors)+'</p>' : '')+
+      '<p class="presenter">Presented by '+escapeHtml(sess.presenterName||"TBD")+'</p>'+
+      linksRow(sess)+
+      '</div></div></div>';
   }
 
-  function renderArchive(){
-    var el = document.getElementById("archive-list");
-    var tKey = todayKey();
-    var pastKeys = Object.keys(sessionsByDate).filter(function(k){
-      return k < tKey && sessionsByDate[k] && sessionsByDate[k].presenterName;
-    }).sort().reverse();
-    if (!pastKeys.length){ el.innerHTML = '<div class="empty">No past sessions yet.</div>'; return; }
-    var html = "";
-    pastKeys.forEach(function(key){
-      var sess = sessionsByDate[key];
-      var d = fromKey(key);
-      html += '<div class="card"><div class="session-row">' + dateChip(d) +
-        '<div class="session-body">' +
-        '<p class="session-title">'+escapeHtml(sess.paperTitle || "Untitled talk")+'</p>' +
-        (sess.paperAuthors ? '<p class="authors">'+escapeHtml(sess.paperAuthors)+'</p>' : '') +
-        '<p class="presenter">Presented by '+escapeHtml(sess.presenterName)+'</p>' +
-        linksRow(sess) +
-        '</div></div></div>';
-    });
-    el.innerHTML = html;
+  function openSlotCard(){
+    return '<div class="card"><div class="session-row">'+
+      '<div class="session-body" style="display:flex;align-items:center;justify-content:space-between;">'+
+      '<span class="open-badge">OPEN — needs a presenter</span>'+
+      '<span style="font-family:-apple-system,sans-serif;font-size:12.5px;color:var(--text-dim);">email the organizer</span>'+
+      '</div></div></div>';
   }
 
-  function renderSuggestions(){
+  fetch('data/sessions.json').then(function(r){ return r.json(); }).catch(function(){ return []; }).then(function(sessions){
+    sessions = sessions || [];
+    var tKey = todayKey();
+    var upcoming = sessions.filter(function(s){ return s.date >= tKey; }).sort(function(a,b){ return a.date.localeCompare(b.date); });
+    var past = sessions.filter(function(s){ return s.date < tKey; }).sort(function(a,b){ return b.date.localeCompare(a.date); });
+
+    var schedEl = document.getElementById("schedule-list");
+    schedEl.innerHTML = upcoming.length ? upcoming.map(sessionCard).join("") : '<div class="empty">No upcoming talks listed yet. Add one to data/sessions.json.</div>';
+
+    var archEl = document.getElementById("archive-list");
+    archEl.innerHTML = past.length ? past.map(sessionCard).join("") : '<div class="empty">No past sessions yet.</div>';
+  });
+
+  fetch('data/suggestions.json').then(function(r){ return r.json(); }).catch(function(){ return []; }).then(function(sugs){
+    sugs = sugs || [];
     var el = document.getElementById("suggestions-list");
-    if (!suggestions.length){ el.innerHTML = '<div class="empty">No suggestions yet — be the first.</div>'; return; }
-    var html = "";
-    suggestions.forEach(function(s){
-      html += '<div class="card suggestion-card">' +
-        '<p class="session-title">'+escapeHtml(s.title || "Untitled")+'</p>' +
-        (s.authors ? '<p class="authors">'+escapeHtml(s.authors)+'</p>' : '') +
-        (s.note ? '<p style="font-size:14px;margin:0 0 8px;">'+escapeHtml(s.note)+'</p>' : '') +
-        '<div class="links-row">' +
-          (s.link ? '<a class="pill-link" href="'+escapeHtml(s.link)+'" target="_blank" rel="noopener">🔗 Link</a>' : '') +
-        '</div>' +
-        '<p class="suggestion-meta" style="margin-top:8px;">Suggested by '+escapeHtml(s.suggestedBy||"anon")+'</p>' +
+    if (!sugs.length){ el.innerHTML = '<div class="empty">No suggestions yet.</div>'; return; }
+    el.innerHTML = sugs.map(function(s){
+      return '<div class="card">'+
+        '<p class="session-title">'+escapeHtml(s.title||"Untitled")+'</p>'+
+        (s.authors ? '<p class="authors">'+escapeHtml(s.authors)+'</p>' : '')+
+        (s.note ? '<p style="font-size:14px;margin:0 0 8px;">'+escapeHtml(s.note)+'</p>' : '')+
+        (s.link ? '<div class="links-row"><a class="pill-link" href="'+escapeHtml(s.link)+'" target="_blank" rel="noopener">🔗 Link</a></div>' : '')+
+        (s.suggestedBy ? '<p class="suggestion-meta" style="margin-top:8px;">Suggested by '+escapeHtml(s.suggestedBy)+'</p>' : '')+
         '</div>';
-    });
-    el.innerHTML = html;
-  }
+    }).join("");
+  });
 
-  // ---------- Tabs ----------
   document.querySelectorAll(".tab-btn").forEach(function(btn){
     btn.addEventListener("click", function(){
       document.querySelectorAll(".tab-btn").forEach(function(b){ b.classList.remove("active"); });
@@ -581,190 +183,6 @@
       document.getElementById("panel-"+btn.dataset.tab).classList.add("active");
     });
   });
-
-  // ---------- Modal helpers ----------
-  function openModal(name){ document.getElementById(name+"-backdrop").classList.add("open"); }
-  function closeModal(name){ document.getElementById(name+"-backdrop").classList.remove("open"); }
-  document.querySelectorAll("[data-close]").forEach(function(btn){
-    btn.addEventListener("click", function(){ closeModal(btn.dataset.close); });
-  });
-  document.querySelectorAll(".modal-backdrop").forEach(function(bd){
-    bd.addEventListener("click", function(e){ if (e.target === bd) bd.classList.remove("open"); });
-  });
-
-  var friendlyDate = function(key){
-    var d = fromKey(key);
-    return DOW[d.getDay()] + " " + (d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear();
-  };
-
-  // ---------- Sign up flow ----------
-  var currentSignupKey = null;
-  document.getElementById("schedule-list").addEventListener("click", function(e){
-    var su = e.target.closest("[data-signup]");
-    if (su) {
-      currentSignupKey = su.dataset.signup;
-      document.getElementById("signup-date-banner").textContent = "Wednesday " + friendlyDate(currentSignupKey) + " · 3:10–4:00 PM · Room 312";
-      document.getElementById("signup-form").reset();
-      document.getElementById("signup-msg").textContent = "";
-      document.getElementById("su-paper-status").textContent = "";
-      document.getElementById("su-ppt-status").textContent = "";
-      openModal("signup");
-      return;
-    }
-    var ed = e.target.closest("[data-edit]");
-    if (ed) {
-      currentEditKey = ed.dataset.edit;
-      document.getElementById("edit-date-banner").textContent = "Wednesday " + friendlyDate(currentEditKey);
-      document.getElementById("edit-form").reset();
-      document.getElementById("edit-msg").textContent = "";
-      document.getElementById("ed-paper-status").textContent = "";
-      document.getElementById("ed-ppt-status").textContent = "";
-      openModal("edit");
-    }
-  });
-
-  document.getElementById("signup-form").addEventListener("submit", async function(e){
-    e.preventDefault();
-    if (!db || !currentSignupKey) return;
-    var msg = document.getElementById("signup-msg");
-    var submitBtn = document.getElementById("signup-submit");
-    submitBtn.disabled = true;
-    msg.className = "form-msg"; msg.textContent = "Signing up…";
-    try {
-      var ref = db.collection("sessions").doc(currentSignupKey);
-      var snap = await ref.get();
-      if (snap.exists && snap.data().presenterName) {
-        msg.className = "form-msg err";
-        msg.textContent = "Sorry — someone just took this date. Pick another.";
-        submitBtn.disabled = false;
-        return;
-      }
-      var data = {
-        date: currentSignupKey,
-        presenterName: document.getElementById("su-name").value.trim(),
-        paperTitle: document.getElementById("su-title").value.trim(),
-        paperAuthors: document.getElementById("su-authors").value.trim(),
-        paperLink: document.getElementById("su-link").value.trim(),
-        updatedAt: Date.now()
-      };
-
-      var paperFile = document.getElementById("su-paper-file").files[0];
-      var pptFile = document.getElementById("su-ppt-file").files[0];
-      if (assets) {
-        if (paperFile) {
-          document.getElementById("su-paper-status").textContent = "Uploading paper…";
-          var pAsset = await assets.upload(paperFile);
-          data.paperAssetId = pAsset.id;
-          data.paperAssetUrl = pAsset.url;
-        }
-        if (pptFile) {
-          document.getElementById("su-ppt-status").textContent = "Uploading slides…";
-          var sAsset = await assets.upload(pptFile);
-          data.pptAssetId = sAsset.id;
-          data.pptAssetUrl = sAsset.url;
-        }
-      } else if (paperFile || pptFile) {
-        msg.className = "form-msg err";
-        msg.textContent = "File upload isn't available for your account here — sign up without files, or add a link instead.";
-      }
-
-      await ref.set(data);
-      msg.className = "form-msg ok";
-      msg.textContent = "You're signed up! Closing…";
-      setTimeout(function(){ closeModal("signup"); }, 700);
-    } catch(err){
-      console.error(err);
-      msg.className = "form-msg err";
-      msg.textContent = "Something went wrong (" + (err && err.code || "error") + "). Please try again.";
-    }
-    submitBtn.disabled = false;
-  });
-
-  // ---------- Edit/upload existing session ----------
-  var currentEditKey = null;
-  document.getElementById("edit-form").addEventListener("submit", async function(e){
-    e.preventDefault();
-    if (!db || !currentEditKey) return;
-    var msg = document.getElementById("edit-msg");
-    var submitBtn = document.getElementById("edit-submit");
-    submitBtn.disabled = true;
-    msg.className = "form-msg"; msg.textContent = "Saving…";
-    try {
-      if (!assets) {
-        msg.className = "form-msg err";
-        msg.textContent = "File upload isn't available for your account here.";
-        submitBtn.disabled = false;
-        return;
-      }
-      var ref = db.collection("sessions").doc(currentEditKey);
-      var update = { updatedAt: Date.now() };
-      var paperFile = document.getElementById("ed-paper-file").files[0];
-      var pptFile = document.getElementById("ed-ppt-file").files[0];
-      if (paperFile) {
-        document.getElementById("ed-paper-status").textContent = "Uploading…";
-        var pAsset = await assets.upload(paperFile);
-        update.paperAssetId = pAsset.id;
-        update.paperAssetUrl = pAsset.url;
-      }
-      if (pptFile) {
-        document.getElementById("ed-ppt-status").textContent = "Uploading…";
-        var sAsset = await assets.upload(pptFile);
-        update.pptAssetId = sAsset.id;
-        update.pptAssetUrl = sAsset.url;
-      }
-      if (!paperFile && !pptFile) {
-        msg.className = "form-msg err";
-        msg.textContent = "Choose a file to upload first.";
-        submitBtn.disabled = false;
-        return;
-      }
-      await ref.update(update);
-      msg.className = "form-msg ok";
-      msg.textContent = "Saved! Closing…";
-      setTimeout(function(){ closeModal("edit"); }, 700);
-    } catch(err){
-      console.error(err);
-      msg.className = "form-msg err";
-      msg.textContent = "Something went wrong (" + (err && err.code || "error") + "). Please try again.";
-    }
-    submitBtn.disabled = false;
-  });
-
-  // ---------- Suggestions ----------
-  document.getElementById("open-suggest").addEventListener("click", function(){
-    document.getElementById("suggest-form").reset();
-    document.getElementById("suggest-msg").textContent = "";
-    openModal("suggest");
-  });
-
-  document.getElementById("suggest-form").addEventListener("submit", async function(e){
-    e.preventDefault();
-    if (!db) return;
-    var msg = document.getElementById("suggest-msg");
-    var submitBtn = document.getElementById("suggest-submit");
-    submitBtn.disabled = true;
-    msg.className = "form-msg"; msg.textContent = "Submitting…";
-    try {
-      await db.collection("suggestions").add({
-        title: document.getElementById("sg-title").value.trim(),
-        authors: document.getElementById("sg-authors").value.trim(),
-        link: document.getElementById("sg-link").value.trim(),
-        note: document.getElementById("sg-note").value.trim(),
-        suggestedBy: document.getElementById("sg-name").value.trim(),
-        createdAt: Date.now()
-      });
-      msg.className = "form-msg ok";
-      msg.textContent = "Thanks! Added to the list.";
-      setTimeout(function(){ closeModal("suggest"); }, 700);
-    } catch(err){
-      console.error(err);
-      msg.className = "form-msg err";
-      msg.textContent = "Something went wrong (" + (err && err.code || "error") + "). Please try again.";
-    }
-    submitBtn.disabled = false;
-  });
-
-  initCaps();
 })();
 </script>
 </body>

@@ -1,9 +1,9 @@
 [
   {
-    "title": "Example suggestion: A paper worth covering",
-    "authors": "",
-    "link": "",
-    "note": "",
-    "suggestedBy": ""
+    "title": "Understanding IR singularities in the Loop-Tree Duality",
+    "authors": "Rodrigo et al.",
+    "link": "https://arxiv.org/abs/2609.00869",
+    "note": "It is on higher order corrections",
+    "suggestedBy": "Faraz Mohd Mehdi"
   }
 ]
